@@ -18,48 +18,56 @@ export function setSingleId(id) {
 
 function render(books) {
   const container = document.querySelector("#container");
+
   container.innerHTML = "<br>"; //removes the previous elements
   const list = document.createElement("div");
-  list.className = `text-center bookCard`;
+  list.className = "listOfBooks";
+  books.forEach(({ title, author, isbn, price, quantity, id, image }) => {
+    const item = document.createElement("div");
+    item.className = "book-container";
+    item.innerHTML = `<a id="view-${id}" href="#" class="view">
+                        <div class="book-card">
 
-  books.forEach(
-    ({
-      title,
-      author,
-      isbn,
-      publishedYear,
-      genre,
-      publisher,
-      price,
-      quantity,
-      id,
-    }) => {
-      const item = document.createElement("div");
-      item.style.fontSize = "x-small";
-      item.innerHTML = `<div id="info-${id}" class="card fullCard text-white bg-dark mb-3" style="width: 18rem;border: 2px solid black;">
-            <div class="card-body">
-                <h5 class="card-title">${title}</h5>
-                <p class="card-text">
-                    <p>author: ${author}</p>
-                    <p>isbn: ${isbn}</p>
-                    <p>publishedYear: ${publishedYear}</p>
-                    <p>genre: ${genre}</p>
-                    <p>publisher: ${publisher}</p>
-                    <p>price: € ${price}</p>
-                    <p>quantity: ${quantity}</p>
-                    </p>
-                    <div class="button-container">
-                      <a id="view-${id}" href="#" class="a-view view"><i class="fa-solid fa-eye fa-3x" style="color: #63E6BE;"></i></a>
-                      <a id="edit-${id}" href="#" class="a-edit edit"><i class="fa-solid fa-pen-fancy fa-3x" style="color: #1c71d8;"></i></a>
-                      <a id="delete-${id}" href="#" class="a-delete delete"><i class="fa-solid fa-trash-can fa-3x" style="color: #c01c28;"></i></a>
-                    </div>
+                          <div class="book-image">
+                              <img src="/rsc/theCatcher.png" alt="Book Cover">
+                          </div> 
+                          
+                          <!--div class="actions">
+                              <a id="edit-${id}" href="#" class="edit"><img src="/rsc/pen.png" alt="trash"></a>
+                              <a id="delete-${id}" href="#" class="delete"><img src="/rsc/trash.png" alt="trash"></a>
+                          </div-->
 
-            </div>
-    </div>`;
+                          <div class="book-details">
+                              <div class="higlofishfa">
+                              <p class="book-id"># ${id}</p>
+                              <h2 class="book-title">${title}</h2>
+                              <p class="book-author">${author}</p>
+                              </div>
+                            
+                              <hr>
 
-      list.appendChild(item);
-    }
-  );
+                              <div class="bottomPart">
+                                  <div class="book-price">
+                                    <span class="infoText">Price</span>
+                                    <span class="price">${price}</span>
+                                  </div>
+
+                                  <div class="book-isbn">
+                                      <span class="infoText">ISBN</span>
+                                      <span class="isbn">${isbn}€</span>
+                                  </div>
+
+                                  <div class="book-unit">
+                                      <span class="infoText">Units</span>
+                                      <span class="book-quantity">${quantity}</span>
+                                  </div>
+                    
+                                </div>
+                            </div>
+                        </div>
+                      </a>`;
+    list.appendChild(item);
+  });
 
   const addBookAnchor = document.createElement("div");
   addBookAnchor.className = "addBook";

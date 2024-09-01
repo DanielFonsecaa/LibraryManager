@@ -10,88 +10,40 @@
 
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
 body {
-    height: 100vh;
-    color: grey;
-    background: white;
-}
-
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 40px;
-    box-shadow: 0 0.1rem 0.5rem gainsboro;
-    width: 100%;
-    background: white;
-    transition: all 0.5s;
-}
-
-.logo-img {
-    width: 2rem;
-}
-
-ul {
     margin: 0;
-}
-
-.navigation ul {
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-}
-
-.navigation ul li a {
-    color: black;
-    font-size: 17px;
-    font-weight: 500;
-    transition: all 0.5s;
-}
-
-.nav-item:hover,
-.logo-img:hover,
-.menu:hover {
-    transform: scale(1.2);
-}
-
-.menu {
-    cursor: pointer;
-    display: none;
-}
-
-.menu .bar {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background: black;
-    margin: 5px auto;
-    transition: all 0.3s;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
 }
 
 .container{
     display:flex;
-    justify-content:space-evenly;
 }
 
-.bookCard{
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center; /* Center the last row */
+a{
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-decoration: none;
 }
 
-.button-container{
+/* NAVBAR */
+
+.navigation {
+    position: sticky;
+    top: 0px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap:9%
+    justify-content: space-between;
+    padding: 5px 30px;
+    width: 100vw;
+    background: rgb(1, 39, 88);
+    /*  z-index: 1000; */
 }
+.logo{
+    transform: scale(0.8);
+}
+
 
 .addBook{
     display: flex;
@@ -99,45 +51,106 @@ ul {
     margin: 20px 50px
 }
 
-@media (max-width:780px) {
-    .navigation {
-        padding: 18px 20px;
-    }
+#searchBtn{
+    background-color: #eae4e4;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
 
-    .menu {
-        display: block;
-    }
+#inputBtn{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
 
-    .menu.ativo .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
+#inputBtn:focus {
+    outline: none;
+}
+/* BOOK RELATED*/
 
-    .menu.ativo .bar:nth-child(2) {
-        opacity: 0;
-    }
+.listOfBooks{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
-    .menu.ativo .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+.book-container{
+    display: flex;
+    width: 580px;
+}
 
-    .nav-menu.ativo {
-        right: 0;
-    }
+.book-card {
+    position: relative;
+    display: flex;
+    background-color: #eae4e4;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 580px;
+    max-width: 600px;
+    height: 300px;
+    margin: 20px auto;
+}
 
-    .nav-menu {
-        position: fixed;
-        right: -100%;
-        top: 70px;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        background: white;
-        gap: -10px;
-        transition: 0.3s;
+.book-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
 
-    }
 
-    .nav-item {
-        margin: 16px 0;
-    }
+.book-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px;
+    width: 30%;
+    height: 85%;
+}
+
+
+.book-image img {
+    width: auto;
+    height: 210px;
+    border-radius: 8px;
+}
+
+.actions {
+    position: absolute;
+    background-color: white;
+    border-radius: 0 15px 0 0;
+    display: flex;
+    bottom: 0px;
+    left: 0px;
+    justify-content: center;
+    width: 28%;
+}
+
+.book-details {
+    padding: 20px;
+    width: 75%;
+}
+
+
+hr {
+    border: 1px solid rgb(184, 184, 184);
+}
+
+.bottomPart{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: auto;
+}
+
+.book-price {
+    display: grid;
+    width: 20%;
+    height: 100%;
+}
+
+.book-isbn {
+    display: grid;
+}
+.book-unit {
+    display: grid;
 }
