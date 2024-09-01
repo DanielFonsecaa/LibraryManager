@@ -2,9 +2,7 @@ package io.technicalAssignment.bookStore.command;
 
 import io.technicalAssignment.bookStore.persistence.enumerator.Genre;
 import io.technicalAssignment.bookStore.persistence.model.Book;
-
 import javax.validation.constraints.*;
-import java.math.BigDecimal;
 
 
 /**
@@ -34,6 +32,17 @@ public class BookDto {
     private int quantity = 1;
     private int publishedYear = 0000;
     private Genre genre;
+    private String imageUrl;
+
+
+
+    public String getImage() {
+        return imageUrl;
+    }
+
+    public void setImage(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     /**
      * Gets the id of the book DTO

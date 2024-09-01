@@ -10,12 +10,16 @@ import java.util.List;
  */
 public interface Dao<T extends Model> {
 
+
+
     /**
      * Gets a list of the model type
      *
      * @return the model list
      */
     List<T> findAll();
+
+
 
     /**
      * Gets the model

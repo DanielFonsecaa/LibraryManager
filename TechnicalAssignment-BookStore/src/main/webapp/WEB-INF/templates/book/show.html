@@ -54,6 +54,15 @@
                         <p class="form-control-static" th:text="€ + ${book.price}">Price</p>
                     </div>
                 </div>
+
+                <div class="group">
+                    <label class="label">Image:</label>
+                    <div class="show-div">
+                        <img th:src="@{/images/{image}(image=${book.imageUrl})}" alt="Book Image" style="max-width: 100px; max-height: 100px;">
+                    </div>
+                </div>
+
+
             </form>
         </div>
 

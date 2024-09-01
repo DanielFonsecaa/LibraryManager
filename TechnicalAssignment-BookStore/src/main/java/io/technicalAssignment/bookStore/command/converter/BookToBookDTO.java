@@ -32,6 +32,7 @@ public class BookToBookDTO extends AbstractConverter<Book, BookDto> {
         bookDto.setPublisher(book.getPublisher());
         bookDto.setQuantity(book.getQuantity());
         bookDto.setTitle(book.getTitle());
+        bookDto.setImage(book.getImage());
 
         return bookDto;
     }

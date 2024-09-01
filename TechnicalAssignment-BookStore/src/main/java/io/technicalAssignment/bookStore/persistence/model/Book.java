@@ -26,7 +26,17 @@ public class Book extends AbstractModel{
     private String author;
     private String publisher;
     private double price;
+    private String imageUrl;
 
+
+
+    public String getImage() {
+        return imageUrl;
+    }
+
+    public void setImage(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     /**
      * Gets the price of the book

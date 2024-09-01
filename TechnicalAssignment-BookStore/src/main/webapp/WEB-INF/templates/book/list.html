@@ -25,6 +25,7 @@
                 <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <!--th>Image</th-->
             </tr>
             <tr th:each="book : ${books}">
                 <td th:text="${book.id}"></td>
@@ -35,9 +36,17 @@
                 <td th:text="${book.genre}"></td>
                 <td th:text="${book.quantity}"></td>
                 <td th:text="€ + ${book.price}"></td>
+
+
                 <td><a class="btn btn-success" th:href="@{'/book/' + ${book.id}}">View</a></td>
                 <td><a class="btn btn-warning" th:href="@{'/book/' + ${book.id} + '/edit'}">Edit</a></td>
                 <td><a class="btn btn-danger" th:href="@{'/book/' + ${book.id} + '/delete'}">Delete</a></td>
+
+                <!--td>
+                    <img th:src="@{/images/{image}(image=${book.imageUrl})}" alt="Book Image" style="max-width: 100px; max-height: 100px;">
+                </td-->
+
+
             </tr>
         </table>
 

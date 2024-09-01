@@ -2,12 +2,17 @@ package io.technicalAssignment.bookStore.persistence.dao.jpa;
 
 
 import io.technicalAssignment.bookStore.persistence.dao.Dao;
+import io.technicalAssignment.bookStore.persistence.model.Book;
 import io.technicalAssignment.bookStore.persistence.model.Model;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
