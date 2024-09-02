@@ -26,7 +26,12 @@ a{
     color: black;
     text-decoration: none;
 }
-
+p{
+    margin: 0;
+}
+h2{
+    margin: 0;
+}
 /* NAVBAR */
 
 .navigation {
@@ -38,7 +43,7 @@ a{
     padding: 5px 30px;
     width: 100vw;
     background: rgb(1, 39, 88);
-    /*  z-index: 1000; */
+    z-index: 1000;
 }
 .logo{
     transform: scale(0.8);
@@ -46,9 +51,14 @@ a{
 
 
 .addBook{
+    position: fixed;
+    bottom: 0;
     display: flex;
-    align-items: self-start;
-    margin: 20px 50px
+    justify-content: end;
+    background-color: rgb(201, 201, 201);
+    width: 100%;
+    z-index: 1000;
+    padding: 10px;
 }
 
 #searchBtn{
@@ -67,6 +77,28 @@ a{
 #inputBtn:focus {
     outline: none;
 }
+.navSearch{
+    display: flex;
+    display: none;
+    background-color: rgb(94, 94, 94);
+}
+#inputNav{
+    margin: 10px;
+    margin-left: 30px;
+    display: flex;
+    color: white;
+    border: none;
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    background-color: rgb(94, 94, 94);
+    font-size: large;
+}
+#searchNav{
+    margin: 10px 15px;
+}
+#inputNav:focus {
+    outline: none;
+}
 /* BOOK RELATED*/
 
 .listOfBooks{
@@ -77,18 +109,18 @@ a{
 
 .book-container{
     display: flex;
-    width: 580px;
+    width: auto;
 }
 
-.book-card {
+.book-card,.singleBook-card {
     position: relative;
     display: flex;
     background-color: #eae4e4;
     border-radius: 15px;
     overflow: hidden;
-    width: 580px;
-    max-width: 600px;
-    height: 300px;
+    width: 600px;
+    max-width: 550px;
+    height: auto;
     margin: 20px auto;
 }
 
@@ -97,14 +129,27 @@ a{
     cursor: pointer;
 }
 
-
+.book-author{
+    color: rgb(121, 121, 121)
+}
+.infoText, .infoGenre{
+    color: rgb(121, 121, 121);
+    font-size: smaller;
+}
+.infoId {
+    padding-top: 5%;
+}
+.book-title{
+    padding-top: 10px;
+    font-size: x-large;
+}
 .book-image {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px 20px;
     width: 30%;
-    height: 85%;
+    height: 72%;
 }
 
 
@@ -117,16 +162,18 @@ a{
 .actions {
     position: absolute;
     background-color: white;
-    border-radius: 0 15px 0 0;
+    border-radius: 0 0 0 15px;
     display: flex;
-    bottom: 0px;
-    left: 0px;
-    justify-content: center;
-    width: 28%;
+    top: 0px;
+    right: 0px;
+    justify-content: space-evenly;
+    width: 35%;
+    height: 45px;
+    align-items: center;
 }
 
 .book-details {
-    padding: 20px;
+    padding: 20px 0px;
     width: 75%;
 }
 
@@ -135,22 +182,218 @@ hr {
     border: 1px solid rgb(184, 184, 184);
 }
 
-.bottomPart{
+
+.personalCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.midlePart,.bottomPart{
     display: flex;
     justify-content: space-between;
     width: 90%;
     height: auto;
 }
 
-.book-price {
+.book-price,.book-isbn,.book-unit,.book-publisher,.book-year,.book-genre,.single-book-price,.single-book-isbn,.single-book-unit  {
     display: grid;
-    width: 20%;
-    height: 100%;
+    max-width: 120px;
 }
 
-.book-isbn {
-    display: grid;
+.book-publisher{
+    padding-right: 10px;
 }
-.book-unit {
-    display: grid;
+
+
+.infoGenre{
+    display: flex;
+    justify-content: end;
 }
+
+.synopse{
+    padding: 30px 0;
+    padding-right: 10px;
+}
+.synopseText{
+    padding-right: 12px;
+}
+
+.back{
+    color: #a9a8a8;
+}
+/* BOOK FORM*/
+
+.book-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.book-form input, 
+.book-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.submit-button, 
+.cancel-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.submit-button:hover, 
+.cancel-button:hover {
+    opacity: 0.5;
+}
+
+
+@media (max-width: 768px) {
+    .searchNav{
+        display: none;
+    }
+    .navSearch{
+        display: flex;
+    }
+    .book-container{
+        justify-content: center;
+        align-items: center;
+    }
+    .book-card{
+        position: relative;
+        max-width: 300px; 
+        width: 400px;
+        min-height: 220px;
+        height: auto;
+    }
+    .book-details {
+        display: flex;
+        padding: 0;
+        flex-direction: column;
+        width: 50%;
+   }
+
+   .singleBook-card{
+    max-width: 320px;
+    width: 400px;
+    min-height: 400px;
+    height: auto;
+    padding: 5px;
+   }
+   .actions{
+    bottom: 0px;
+    right: 0;
+    top: unset;
+    border-radius: 15px 0 0 0;
+    width: 125px;
+   }
+   .primaryInfo{
+    width: 100%;
+    min-height: 150px;
+    height: auto;
+    padding: 10px 0;
+    box-sizing: border-box;
+   }  
+
+   hr {
+    display: none;
+   }
+    .midlePart, .bottomPart{
+    font-size: small;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    width: 90%;
+    height: auto;
+}
+   .book-image img {
+    margin: 0 0;
+    width: auto;
+    height: 120px;
+    border-radius: 8px;
+}
+.book-isbn, .book-unit,.book-price{
+    position: absolute;
+    align-items: end;
+    bottom: 10px;
+}
+.book-year, .book-publisher,.book-genre{
+    position: absolute;
+    align-items: end;
+    bottom: 160px;
+}
+
+.single-book-isbn, .single-book-unit,.single-book-price{
+    position: absolute;
+    align-items: end;
+    bottom: 200px;
+}
+
+.synopseText{
+    position: absolute;
+    align-items: end;
+    bottom: 45px;
+    left: 40px;
+    width: 80%;
+}
+
+.infoGenre{
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-price, .book-year, .single-book-price  {
+    left: 20px;
+}
+.book-isbn, .single-book-isbn{
+    left: 100px;
+}
+.book-unit, .book-genre, .single-book-unit{
+    left: 240px;
+}
+.nav-menu{
+    display: none;
+}
+
+.book-publisher{
+    left: 100px;
+    bottom: 140px;
+}
+
+.submit-button:hover, 
+.cancel-button:hover {
+    opacity: 0.5;
+}
+  }

@@ -27,15 +27,40 @@ public class Book extends AbstractModel{
     private String publisher;
     private double price;
     private String imageUrl;
+    @Column(name = "synopsis")
+    private String synopsis;
 
-
-
-    public String getImage() {
+    /**
+     * Gets the imageUrl of the book
+     *
+     * @return the imageUrl title
+     */
+    public String getImageUrl() {
         return imageUrl;
     }
-
-    public void setImage(String imageUrl) {
+    /**
+     * Sets the imageUrl of the book
+     *
+     * @param imageUrl the imageUrl to set
+     */
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+    /**
+     * Gets the synopsis of the book
+     *
+     * @return the synopsis title
+     */
+    public String getSynopsis() {
+        return synopsis;
+    }
+    /**
+     * Sets the synopsis of the book
+     *
+     * @param synopsis the synopsis to set
+     */
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 
     /**

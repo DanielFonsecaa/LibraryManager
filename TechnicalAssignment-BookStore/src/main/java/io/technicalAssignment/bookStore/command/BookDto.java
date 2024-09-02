@@ -33,15 +33,39 @@ public class BookDto {
     private int publishedYear = 0000;
     private Genre genre;
     private String imageUrl;
+    private String synopsis;
 
-
-
-    public String getImage() {
+    /**
+     * Gets the imageUrl of the book
+     *
+     * @return the imageUrl title
+     */
+    public String getImageUrl() {
         return imageUrl;
     }
-
-    public void setImage(String imageUrl) {
+    /**
+     * Sets the imageUrl of the book
+     *
+     * @param imageUrl the imageUrl to set
+     */
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+    /**
+     * Gets the synopsis of the book
+     *
+     * @return the synopsis title
+     */
+    public String getSynopsis() {
+        return synopsis;
+    }
+    /**
+     * Sets the synopsis of the book
+     *
+     * @param synopsis the synopsis to set
+     */
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 
     /**
@@ -67,7 +91,7 @@ public class BookDto {
      *
      * @return the book DTO title
      */
-    public @NotNull(message = "Title is mandatory") @NotBlank(message = "Title is mandatory") @Size(min = 2, max = 64) String getTitle() {
+    public String getTitle() {
         return title;
     }
     /**
@@ -75,7 +99,7 @@ public class BookDto {
      *
      * @param title the title to set
      */
-    public void setTitle(@NotNull(message = "Title is mandatory") @NotBlank(message = "Title is mandatory") @Size(min = 2, max = 64) String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
     /**
@@ -83,7 +107,7 @@ public class BookDto {
      *
      * @return the book DTO author
      */
-    public @NotNull(message = "Author is mandatory") @NotBlank(message = "Author is mandatory") @Size(min = 3, max = 64) String getAuthor() {
+    public String getAuthor() {
         return author;
     }
     /**
@@ -91,7 +115,7 @@ public class BookDto {
      *
      * @param author the author to set
      */
-    public void setAuthor(@NotNull(message = "Author is mandatory") @NotBlank(message = "Author is mandatory") @Size(min = 3, max = 64) String author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
     /**
@@ -99,7 +123,7 @@ public class BookDto {
      *
      * @return the book DTO isbn
      */
-    public @NotBlank(message = "Isbn is mandatory") @Size(min = 9, max = 15) String getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
     /**
@@ -107,7 +131,7 @@ public class BookDto {
      *
      * @param isbn the isbn to set
      */
-    public void setIsbn(@NotBlank(message = "Isbn is mandatory") @Size(min = 9, max = 15) String isbn) {
+    public void setIsbn( String isbn) {
         this.isbn = isbn;
     }
     /**

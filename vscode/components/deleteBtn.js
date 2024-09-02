@@ -1,6 +1,6 @@
 import { getSingleId, setSingleId } from "../js/view/bookView.js";
 
-export function deleteButtonListeners() {
+export function deleteButtonListeners(router, routes) {
   const deleteBtn = document.getElementsByClassName("delete");
 
   [...deleteBtn].forEach((elem) => {
@@ -35,6 +35,7 @@ export function deleteButtonListeners() {
                 if (book) {
                   book.parentNode.removeChild(book);
                 }
+                router.navigate(routes.book.path);
                 alert("Book successfully deleted!");
                 return;
               }

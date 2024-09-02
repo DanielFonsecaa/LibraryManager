@@ -24,7 +24,7 @@ async function updateBook(id, updatedBook) {
     );
 
     if (response.ok) {
-      router.navigate(routes.book.path);
+      router.navigate(routes.singleBook.path);
     }
   } catch (error) {
     console.error("Error updating book:", error);
@@ -33,27 +33,24 @@ async function updateBook(id, updatedBook) {
 
 function render(book) {
   const container = document.querySelector("#container");
-  container.innerHTML = "<br>"; // Clears the previous content
+  container.innerHTML = "<br>";
 
   const form = document.createElement("form");
   form.setAttribute("method", "put");
   form.setAttribute("action", "#");
+  form.classList.add("book-form");
 
   // Form fields
   const titleField = createInput("text", "Title", book.title);
-
   const authorField = createInput("text", "Author", book.author);
-
   const publishedYearField = createInput(
     "number",
     "Published Year",
     book.publishedYear
   );
   const quantityField = createInput("number", "Quantity", book.quantity);
-
   const priceField = createInput("number", "Price", book.price);
   priceField.setAttribute("step", "0.01");
-
   const publisherField = createInput("text", "Publisher", book.publisher);
 
   // Creating genre dropdown
@@ -65,6 +62,11 @@ function render(book) {
     if (genre === book.genre) option.selected = true;
     genreSelect.appendChild(option);
   });
+  const synopsisField = document.createElement("textarea");
+  synopsisField.name = "synopsis";
+  synopsisField.rows = 4; // Set the number of rows to 4
+  synopsisField.placeholder = "Enter synopsis...";
+  synopsisField.value = book.synopsis;
 
   const fields = [
     { label: "Title", element: titleField, errorId: "titleError" },
@@ -76,8 +78,13 @@ function render(book) {
     },
     { label: "Genre", element: genreSelect, errorId: "genreError" },
     { label: "Publisher", element: publisherField, errorId: "publisherError" },
-    { label: "Quantity", element: quantityField, errorId: "quantityError" },
+    {
+      label: "Quantity",
+      element: quantityField,
+      errorId: "quantityError",
+    },
     { label: "Price", element: priceField, errorId: "priceError" },
+    { label: "Synopsis", element: synopsisField, errorId: "synopseError" },
   ];
 
   fields.forEach(({ label, element, errorId }) => {
@@ -89,8 +96,7 @@ function render(book) {
     // Create and append error message element
     const error = document.createElement("span");
     error.id = errorId;
-    error.style.color = "red";
-    error.style.display = "none";
+    error.classList.add("error-message");
     form.appendChild(error);
   });
 
@@ -108,6 +114,7 @@ function render(book) {
       genre: genreSelect.value,
       quantity: parseInt(quantityField.value, 10),
       price: parseFloat(priceField.value),
+      synopsis: synopsisField.value,
     };
 
     //Validation
@@ -120,13 +127,16 @@ function render(book) {
     }
   });
 
-  // Creating submit button
+  //submit button
   const submitBtn = document.createElement("button");
   submitBtn.textContent = "Submit";
+  submitBtn.classList.add("submit-button");
 
-  // Creating cancel button
+  //cancel button
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
+  cancelBtn.classList.add("cancel-button");
+
   cancelBtn.addEventListener("click", () => {
     //Set the value of the input back to what it was
     titleField.value = book.title;
@@ -136,6 +146,7 @@ function render(book) {
     publisherField.value = book.publisher;
     quantityField.value = book.quantity;
     priceField.value = book.price;
+    synopsisField.value = book.synopsis;
 
     router.navigate(routes.book.path);
   });

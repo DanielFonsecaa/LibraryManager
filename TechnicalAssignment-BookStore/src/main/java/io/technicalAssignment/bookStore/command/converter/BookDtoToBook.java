@@ -44,7 +44,9 @@ public class BookDtoToBook implements Converter<BookDto, Book> {
         book.setQuantity(bookDto.getQuantity());
         book.setPrice(bookDto.getPrice());
         book.setIsbn(bookDto.getIsbn());
-        book.setImage(bookDto.getImage());
+        book.setImageUrl(bookDto.getImageUrl());
+        book.setSynopsis(bookDto.getSynopsis());
+        book.setSynopsis(bookDto.getSynopsis());
 
         return book;
     }

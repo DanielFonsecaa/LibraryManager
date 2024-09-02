@@ -40,26 +40,28 @@ function clearFormFields() {
 
 function render() {
   const container = document.querySelector("#container");
-  container.innerHTML = "<br>"; // Clears the previous content
+  container.innerHTML = "<br>";
 
   const form = document.createElement("form");
   form.setAttribute("method", "POST");
   form.setAttribute("action", "#");
+  form.classList.add("book-form");
 
   // Form fields
   const titleField = createInput("text", "Title");
-
   const authorField = createInput("text", "Author");
-
   const isbnField = createInput("text", "ISBN");
-
   const publishedYearField = createInput("number", "Published Year");
   const quantityField = createInput("number", "Quantity", 1);
-
   const priceField = createInput("number", "Price", 10.0);
   priceField.setAttribute("step", "0.01");
 
   const publisherField = createInput("text", "Publisher");
+
+  const synopsisField = document.createElement("textarea");
+  synopsisField.name = "synopsis";
+  synopsisField.rows = 4; // Set the number of rows to 4
+  synopsisField.placeholder = "Enter synopsis...";
 
   // Creating genre dropdown
   const genreSelect = document.createElement("select");
@@ -78,11 +80,12 @@ function render() {
       element: publishedYearField,
       errorId: "publishedYearError",
     },
-    { label: "Isbn", element: isbnField, errorId: "isbnError" },
+    { label: "ISBN", element: isbnField, errorId: "isbnError" },
     { label: "Genre", element: genreSelect, errorId: "genreError" },
     { label: "Publisher", element: publisherField, errorId: "publisherError" },
     { label: "Quantity", element: quantityField, errorId: "quantityError" },
     { label: "Price", element: priceField, errorId: "priceError" },
+    { label: "Synopsis", element: synopsisField, errorId: "synopseError" },
   ];
 
   fields.forEach(({ label, element, errorId }) => {
@@ -94,8 +97,7 @@ function render() {
     // Create and append error message element
     const error = document.createElement("span");
     error.id = errorId;
-    error.style.color = "red";
-    error.style.display = "none";
+    error.classList.add("error-message");
     form.appendChild(error);
   });
 
@@ -112,6 +114,7 @@ function render() {
       genre: genreSelect.value,
       quantity: parseInt(quantityField.value, 10),
       price: parseFloat(priceField.value),
+      synopsis: synopsisField.value,
     };
 
     validate(newBook);
@@ -126,13 +129,14 @@ function render() {
   // Creating submit button
   const submitBtn = document.createElement("button");
   submitBtn.textContent = "Create";
+  submitBtn.classList.add("submit-button");
 
   // Creating cancel button
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
-  cancelBtn.addEventListener("click", () => {
-    //Set the value of the input back to what it was
+  cancelBtn.classList.add("cancel-button");
 
+  cancelBtn.addEventListener("click", () => {
     clearFormFields();
     router.navigate(routes.book.path);
   });

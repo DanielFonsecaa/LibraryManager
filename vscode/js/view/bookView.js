@@ -1,7 +1,5 @@
 import router from "../router.js";
 import routes from "../routes.js";
-import { deleteButtonListeners } from "../../components/deleteBtn.js";
-import { editButtonListeners } from "../../components/editBtn.js";
 import { viewButtonListeners } from "../../components/viewBtn.js";
 
 export let singleId = null; // Declare the shared singleId variable
@@ -38,23 +36,23 @@ function render(books) {
                           </div-->
 
                           <div class="book-details">
-                              <div class="higlofishfa">
-                              <p class="book-id"># ${id}</p>
+                              <div class="primaryInfo">
+                              <p class="infoText"># ${id}</p>
                               <h2 class="book-title">${title}</h2>
                               <p class="book-author">${author}</p>
                               </div>
                             
                               <hr>
 
-                              <div class="bottomPart">
+                              <div class="midlePart">
                                   <div class="book-price">
                                     <span class="infoText">Price</span>
-                                    <span class="price">${price}</span>
+                                    <span class="price">${price}€</span>
                                   </div>
 
                                   <div class="book-isbn">
                                       <span class="infoText">ISBN</span>
-                                      <span class="isbn">${isbn}€</span>
+                                      <span class="isbn">${isbn}</span>
                                   </div>
 
                                   <div class="book-unit">
@@ -71,24 +69,19 @@ function render(books) {
 
   const addBookAnchor = document.createElement("div");
   addBookAnchor.className = "addBook";
-  addBookAnchor.innerHTML = `<a class="addAchor" href="#">
+  addBookAnchor.innerHTML = `<a class="addAnchor" href="#">
                               <i class="fa-solid fa-square-plus fa-2xl" style="color: #2ec27e;"></i>
                               Add new book
                               </a>`;
-
   addBookAnchor.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = e.target.closest(".addAchor");
-    router.navigate(routes.addForm.path);
+    if (e.target.closest(".addAnchor")) {
+      e.preventDefault();
+      router.navigate(routes.addForm.path);
+    }
   });
-
   container.appendChild(addBookAnchor);
   container.appendChild(list);
   viewButtonListeners(router, routes);
-
-  editButtonListeners(router, routes);
-
-  deleteButtonListeners();
 }
 
 export default { render };
