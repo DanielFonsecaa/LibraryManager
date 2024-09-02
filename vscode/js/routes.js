@@ -8,19 +8,15 @@ export default {
     controller: "",
   },
   form: {
-    path: `/bookStore/api/form/\[0-9]+`,
+    path: `/bookStore/api/form/:id`,
     controller: "formController",
   },
   addForm: {
     path: `/bookStore/api/add`,
     controller: "addFormController",
   },
-  book: {
-    path: "/bookStore/api/books",
-    controller: "bookController",
-  },
   singleBook: {
-    path: `/bookStore/api/books/\[0-9]+`,
+    path: `/bookStore/api/books/:id`,
     controller: "singleBookController",
   },
 };

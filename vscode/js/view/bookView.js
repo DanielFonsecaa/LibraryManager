@@ -20,14 +20,15 @@ function render(books) {
   container.innerHTML = "<br>"; //removes the previous elements
   const list = document.createElement("div");
   list.className = "listOfBooks";
-  books.forEach(({ title, author, isbn, price, quantity, id, image }) => {
+  console.log(books);
+  books.forEach(({ title, author, isbn, price, quantity, id, imageUrl }) => {
     const item = document.createElement("div");
     item.className = "book-container";
     item.innerHTML = `<a id="view-${id}" href="#" class="view">
                         <div class="book-card">
 
                           <div class="book-image">
-                              <img src="/rsc/theCatcher.png" alt="Book Cover">
+                              <img src="${imageUrl}" alt="Book Cover">
                           </div> 
                           
                           <!--div class="actions">

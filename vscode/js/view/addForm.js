@@ -22,7 +22,7 @@ async function createBook(newBook) {
 
     if (response.ok) {
       alert("Book has been created");
-      router.navigate(routes.book.path); // Redirect to the book list page
+      router.navigate(routes.home.path); // Redirect to the book list page
       return;
     }
 
@@ -63,6 +63,8 @@ function render() {
   synopsisField.rows = 4; // Set the number of rows to 4
   synopsisField.placeholder = "Enter synopsis...";
 
+  const imageField = createInput("text", "Imagem Url");
+
   // Creating genre dropdown
   const genreSelect = document.createElement("select");
   genreData.forEach((genre) => {
@@ -85,7 +87,8 @@ function render() {
     { label: "Publisher", element: publisherField, errorId: "publisherError" },
     { label: "Quantity", element: quantityField, errorId: "quantityError" },
     { label: "Price", element: priceField, errorId: "priceError" },
-    { label: "Synopsis", element: synopsisField, errorId: "synopseError" },
+    { label: "Synopsis", element: synopsisField, errorId: "synopsisError" },
+    { label: "Image Url", element: imageField, errorId: "imageUrlError" },
   ];
 
   fields.forEach(({ label, element, errorId }) => {
@@ -115,9 +118,19 @@ function render() {
       quantity: parseInt(quantityField.value, 10),
       price: parseFloat(priceField.value),
       synopsis: synopsisField.value,
+      imageUrl: imageField.value,
     };
 
     validate(newBook);
+    // ISBN validation
+    if (newBook.isbn.length < 9 || newBook.isbn.length > 13) {
+      document.getElementById("isbnError").textContent =
+        "ISBN must be between 9 and 13 characters.";
+      document.getElementById("isbnError").style.display = "inline";
+      isValid = false;
+    } else {
+      document.getElementById("isbnError").style.display = "none";
+    }
 
     // If all fields are valid, send the updated data
     if (isValid) {
@@ -138,7 +151,7 @@ function render() {
 
   cancelBtn.addEventListener("click", () => {
     clearFormFields();
-    router.navigate(routes.book.path);
+    router.navigate(routes.home.path);
   });
 
   form.appendChild(submitBtn);

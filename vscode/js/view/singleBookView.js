@@ -13,7 +13,7 @@ function render(book) {
                 <div class="singleBook-card">
 
                     <div class="book-image">
-                        <img src="/rsc/theCatcher.png" alt="Book Cover">
+                        <img src="${book.imageUrl}" alt="Book Cover">
                     </div> 
                     
                     <div class="actions">
@@ -77,7 +77,7 @@ function render(book) {
   const goBackButton = document.getElementById(`goBack`); // Get specific button
   goBackButton.addEventListener("click", (e) => {
     e.preventDefault();
-    router.navigate(routes.book.path);
+    router.navigate(routes.home.path);
   });
   editButtonListeners(router, routes);
   deleteButtonListeners(router, routes);

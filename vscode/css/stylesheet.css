@@ -80,7 +80,10 @@ h2{
 .navSearch{
     display: flex;
     display: none;
+    position: sticky;
+    top: 59px;
     background-color: rgb(94, 94, 94);
+    z-index: 1000;
 }
 #inputNav{
     margin: 10px;

@@ -7,6 +7,8 @@ export function validate(book) {
       "Title must be at least 3 letters long.";
     document.getElementById("titleError").style.display = "inline";
     isValid = false;
+  } else {
+    document.getElementById("titleError").style.display = "none";
   }
 
   // Author validation
@@ -15,22 +17,18 @@ export function validate(book) {
       "Author must be at least 3 letters long.";
     document.getElementById("authorError").style.display = "inline";
     isValid = false;
-  }
-
-  // Isbn validation
-  if (book.isbn.length < 9 || book.isbn.length > 13) {
-    document.getElementById("authorError").textContent =
-      "Isbn must be between 9 and 13.";
-    document.getElementById("isbnError").style.display = "inline";
-    isValid = false;
+  } else {
+    document.getElementById("authorError").style.display = "none";
   }
 
   // Published Year validation
-  if (isNaN(book.publishedYear)) {
+  if (isNaN(book.publishedYear) || book.publishedYear <= 0) {
     document.getElementById("publishedYearError").textContent =
       "Published Year must be a positive number.";
     document.getElementById("publishedYearError").style.display = "inline";
     isValid = false;
+  } else {
+    document.getElementById("publishedYearError").style.display = "none";
   }
 
   // Publisher validation
@@ -39,6 +37,8 @@ export function validate(book) {
       "Publisher is required.";
     document.getElementById("publisherError").style.display = "inline";
     isValid = false;
+  } else {
+    document.getElementById("publisherError").style.display = "none";
   }
 
   // Quantity validation
@@ -47,13 +47,37 @@ export function validate(book) {
       "Quantity must be a non-negative number.";
     document.getElementById("quantityError").style.display = "inline";
     isValid = false;
+  } else {
+    document.getElementById("quantityError").style.display = "none";
   }
 
   // Price validation
   if (isNaN(book.price) || book.price < 1) {
     document.getElementById("priceError").textContent =
-      "Price must 1 or higher";
+      "Price must be 1 or higher.";
     document.getElementById("priceError").style.display = "inline";
     isValid = false;
+  } else {
+    document.getElementById("priceError").style.display = "none";
+  }
+
+  // Synopsis validation
+  if (book.synopsis.length > 100) {
+    document.getElementById("synopsisError").textContent =
+      "Synopsis must be 100 characters or fewer.";
+    document.getElementById("synopsisError").style.display = "inline";
+    isValid = false;
+  } else {
+    document.getElementById("synopsisError").style.display = "none";
+  }
+  const imageUrlRegex = /^https?:\/\/.*\.(png|jpg)$/i;
+  // Image URL validation
+  if (!imageUrlRegex.test(book.imageUrl)) {
+    document.getElementById("imageUrlError").textContent =
+      "Image URL must start with http:// or https:// and end with .png or .jpg.";
+    document.getElementById("imageUrlError").style.display = "inline";
+    isValid = false;
+  } else {
+    document.getElementById("imageUrlError").style.display = "none";
   }
 }

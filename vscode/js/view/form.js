@@ -68,6 +68,8 @@ function render(book) {
   synopsisField.placeholder = "Enter synopsis...";
   synopsisField.value = book.synopsis;
 
+  const imageField = createInput("text", "Image URL", book.imageUrl);
+
   const fields = [
     { label: "Title", element: titleField, errorId: "titleError" },
     { label: "Author", element: authorField, errorId: "authorError" },
@@ -84,7 +86,8 @@ function render(book) {
       errorId: "quantityError",
     },
     { label: "Price", element: priceField, errorId: "priceError" },
-    { label: "Synopsis", element: synopsisField, errorId: "synopseError" },
+    { label: "Synopsis", element: synopsisField, errorId: "synopsisError" },
+    { label: "Image Url", element: imageField, errorId: "imageUrlError" },
   ];
 
   fields.forEach(({ label, element, errorId }) => {
@@ -115,6 +118,7 @@ function render(book) {
       quantity: parseInt(quantityField.value, 10),
       price: parseFloat(priceField.value),
       synopsis: synopsisField.value,
+      imageUrl: imageField.value,
     };
 
     //Validation
@@ -147,8 +151,9 @@ function render(book) {
     quantityField.value = book.quantity;
     priceField.value = book.price;
     synopsisField.value = book.synopsis;
+    imageField.value = book.imageUrl;
 
-    router.navigate(routes.book.path);
+    router.navigate(routes.home.path);
   });
 
   form.appendChild(submitBtn);

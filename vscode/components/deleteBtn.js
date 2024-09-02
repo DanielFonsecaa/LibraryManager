@@ -35,7 +35,7 @@ export function deleteButtonListeners(router, routes) {
                 if (book) {
                   book.parentNode.removeChild(book);
                 }
-                router.navigate(routes.book.path);
+                router.navigate(routes.home.path);
                 alert("Book successfully deleted!");
                 return;
               }

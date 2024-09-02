@@ -1,5 +1,7 @@
-import homeView from "../view/homeView.js";
+import homeView from "../view/bookView.js";
+import bookService from "../service/bookService.js";
 
 export async function init() {
-  homeView.render();
+  const book = await bookService.getBooks();
+  homeView.render(book);
 }
