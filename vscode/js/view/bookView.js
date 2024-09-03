@@ -20,7 +20,6 @@ function render(books) {
   container.innerHTML = "<br>"; //removes the previous elements
   const list = document.createElement("div");
   list.className = "listOfBooks";
-  console.log(books);
   books.forEach(({ title, author, isbn, price, quantity, id, imageUrl }) => {
     const item = document.createElement("div");
     item.className = "book-container";

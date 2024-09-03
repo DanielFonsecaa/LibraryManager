@@ -30,14 +30,6 @@ public interface Dao<T extends Model> {
     T findById(Integer id);
 
     /**
-     * Gets the model
-     *
-     * @param name the model name
-     * @return the model
-     */
-    T findByName(String name);
-
-    /**
      * Saves or updates the model
      *
      * @param modelObject the model to be saved or updated

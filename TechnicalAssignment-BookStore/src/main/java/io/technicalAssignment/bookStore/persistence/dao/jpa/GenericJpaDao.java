@@ -7,6 +7,7 @@ import io.technicalAssignment.bookStore.persistence.model.Model;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.io.IOException;
@@ -60,18 +61,12 @@ public class GenericJpaDao<T extends Model> implements Dao<T> {
         //return em.createQuery( "from " + modelType.getSimpleName(), modelType).getResultList();
 
     }
-
     /**
      * @see Dao#findById(Integer)
      */
     @Override
     public T findById(Integer id) {
         return em.find(modelType, id);
-    }
-
-    @Override
-    public T findByName(String name) {
-        return em.find(modelType, name);
     }
 
     /**

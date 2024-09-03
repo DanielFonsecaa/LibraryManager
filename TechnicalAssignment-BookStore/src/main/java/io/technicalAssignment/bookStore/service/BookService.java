@@ -21,14 +21,6 @@ public interface BookService {
     Book get(Integer id);
 
     /**
-     * Gets the book with the given name
-     *
-     * @param name the book name
-     * @return the book
-     */
-    Book get(String name);
-
-    /**
      * Gets a list of the books
      *
      * @return the books list

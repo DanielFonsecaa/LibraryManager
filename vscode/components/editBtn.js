@@ -13,7 +13,6 @@ export const editButtonListeners = (router, routes) => {
 
         if (idMatch) {
           const id = idMatch[1];
-          console.log("Editing book with ID:", id);
 
           setSingleId(id);
           const dynamicPath = routes.form.path;

@@ -1,10 +1,8 @@
 import routes from "./routes.js";
 
 async function launchController(controllerName) {
-  console.log("this is controller name", controllerName);
   try {
     const module = await import(`./controler/${controllerName}.js`);
-    console.log("-------->", controllerName);
     module.init();
   } catch (error) {
     console.log(error);
@@ -42,7 +40,7 @@ function navigate(path, firstLoad = false) {
 
   const routeKey = Object.keys(routes).find((key) => routes[key].path === path);
   const route = routes[routeKey] || routes.home;
-  console.log(route);
+
   //Setting the current route
   setCurrentRoute(route);
 

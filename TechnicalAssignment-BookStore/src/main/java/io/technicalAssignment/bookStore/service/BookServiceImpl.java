@@ -40,20 +40,11 @@ public class BookServiceImpl implements BookService {
     }
 
     /**
-     * @see BookService#get(String)
-     */
-    @Override
-    public Book get(String name) {
-        return bookDao.findByName(name);
-    }
-
-    /**
      * @see BookService#list()
      */
     @Override
     public List<Book> list() {
-        List<Book> books = bookDao.findAll();
-        return books;
+        return bookDao.findAll();
     }
 
     /**
