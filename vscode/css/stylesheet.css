@@ -103,6 +103,23 @@ h2{
 }
 /* BOOK RELATED*/
 
+.btnToSort{
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
+    height: 50px;
+    gap: 30px;
+}
+
+.sortOrder, .sortGenre,.default{
+    border: none;
+    background-color: #dac8c8;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+
+
 .listOfBooks{
     display:flex;
     flex-wrap: wrap;
@@ -277,7 +294,11 @@ hr {
 }
 
 .submit-button:hover, 
-.cancel-button:hover {
+.cancel-button:hover, 
+.sortOrder:hover, 
+.sortGenre:hover, 
+#searchBtn:hover, 
+.default:hover {
     opacity: 0.5;
 }
 
@@ -288,6 +309,13 @@ hr {
     }
     .navSearch{
         display: flex;
+    }
+
+    .btnToSort{
+        display: flex;
+        margin: 0px 20px;
+        height: 50px;
+        justify-content: center;
     }
     .book-container{
         justify-content: center;
@@ -398,4 +426,6 @@ hr {
 .cancel-button:hover {
     opacity: 0.5;
 }
+
+
   }

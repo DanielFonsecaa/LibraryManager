@@ -1,12 +1,12 @@
 import { getSingleId, setSingleId } from "../js/view/bookView.js";
 
-export const editButtonListeners = (router, routes) => {
+export function editButtonListeners(router, routes) {
   const editAnchors = document.getElementsByClassName("edit");
 
   [...editAnchors].forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = e.target.closest(".edit"); // Find the closest element
+      const target = e.target.closest(".edit");
 
       if (target) {
         const idMatch = target.id.match(/edit-(\d+)/);
@@ -22,4 +22,4 @@ export const editButtonListeners = (router, routes) => {
       }
     });
   });
-};
+}

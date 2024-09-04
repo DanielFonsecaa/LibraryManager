@@ -1,6 +1,10 @@
 import router from "../router.js";
 import routes from "../routes.js";
 import { viewButtonListeners } from "../../components/viewBtn.js";
+import { sortBtnOrder } from "../../components/sortBtn.js";
+import { defaultBtnOrder } from "../../components/defaultBtn.js";
+import { genreData } from "../../components/updateFormUtils.js";
+import { selectBtnFilter } from "../../components/selectBtn.js";
 
 export let singleId = null; // Declare the shared singleId variable
 
@@ -18,6 +22,45 @@ function render(books) {
   const container = document.querySelector("#container");
 
   container.innerHTML = "<br>"; //removes the previous elements
+  const sortBtns = document.createElement("div");
+
+  sortBtns.className = "btnToSort";
+  sortBtns.innerHTML = `
+    <button class="default">Default</button>
+    <button class="sortOrder">Order A-Z</button>
+    <select class="sortGenre"> Select Genre</select>
+  `;
+  container.appendChild(sortBtns);
+
+  const sortBtn = document.querySelector(".sortOrder");
+  sortBtn.addEventListener("click", sortBtnOrder());
+
+  const defaultBtn = document.querySelector(".default");
+  defaultBtn.addEventListener("click", defaultBtnOrder());
+
+  const selectBtn = document.querySelector(".sortGenre");
+
+  const defaultOption = document.createElement("option");
+  defaultOption.textContent = "Filter by Genre";
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  selectBtn.appendChild(defaultOption);
+
+  genreData.forEach((genre) => {
+    const option = document.createElement("option");
+    option.textContent = genre;
+    option.value = genre;
+    selectBtn.appendChild(option);
+  });
+
+  selectBtn.addEventListener("change", (e) => {
+    const selectedGenre = e.target.value;
+    if (selectedGenre) {
+      selectBtnFilter(selectedGenre);
+      selectBtn.value = selectedGenre;
+    }
+  });
+
   const list = document.createElement("div");
   list.className = "listOfBooks";
   books.forEach(({ title, author, isbn, price, quantity, id, imageUrl }) => {
@@ -79,6 +122,7 @@ function render(books) {
       router.navigate(routes.addForm.path);
     }
   });
+
   container.appendChild(addBookAnchor);
   container.appendChild(list);
   viewButtonListeners(router, routes);
