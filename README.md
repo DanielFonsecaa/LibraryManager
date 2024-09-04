@@ -54,7 +54,7 @@ When you access the application, you are presented with a list of all books in t
        Click on any book in the list to navigate to its detailed view.
 
 
-   Search for Books:
+  --*Search for Books:*
 
   
 Use the search bar on the main page to filter books by:
@@ -62,6 +62,16 @@ Use the search bar on the main page to filter books by:
 Title, Author, Year, ISBN, Publisher
 
 Partial information is acceptable, the search will filter books that contain the search term in any of these fields.
+
+
+--*Sort and Filter Options:*
+
+Sort by Title (A-Z): Click the "Order A-Z" button to organize the book list alphabetically by title.
+
+Filter by Genre: Use the "Filter by Genre" dropdown to display only books that match the selected genre.
+
+Reset to Default: Click the "Default" button to clear all filters and return to the original book list.
+
 
 --*Add a New Book:*
 
