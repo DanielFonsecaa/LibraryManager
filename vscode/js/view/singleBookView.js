@@ -6,7 +6,7 @@ import { editButtonListeners } from "../../components/editBtn.js";
 function render(book) {
   const container = document.querySelector("#container");
 
-  container.innerHTML = ""; //removes the previous elements
+  container.innerHTML = "";
   const elem = document.createElement("div");
   elem.id = "personalCard";
   elem.innerHTML = `
@@ -74,7 +74,7 @@ function render(book) {
 
   container.appendChild(elem);
 
-  const goBackButton = document.getElementById(`goBack`); // Get specific button
+  const goBackButton = document.getElementById(`goBack`);
   goBackButton.addEventListener("click", (e) => {
     e.preventDefault();
     router.navigate(routes.home.path);

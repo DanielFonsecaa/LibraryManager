@@ -18,7 +18,7 @@ public class GlobalExceptionController {
     @ExceptionHandler(NoMoreBooksException.class)
     public String handleNoMoreBooksException(NoMoreBooksException ex, Model model) {
         model.addAttribute("message", ex.getMessage());
-        return "error/no-more-books"; // Name of the Thymeleaf template for the error page
+        return "error/no-more-books";
     }
 
     /**
@@ -31,8 +31,6 @@ public class GlobalExceptionController {
     @ExceptionHandler(BookNotFoundException.class)
     public String handleBookNotFoundException(BookNotFoundException ex, Model model) {
         model.addAttribute("message", ex.getMessage());
-        return "error/book-not-found"; // Name of the Thymeleaf template for the error page
+        return "error/book-not-found";
     }
-
-    // You can add more exception handlers as needed
 }

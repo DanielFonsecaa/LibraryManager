@@ -28,7 +28,6 @@ function setCurrentRoute({ path, controller }) {
 function handlePopState({ state }) {
   const route = state || routes.home;
 
-  //Setting the current route
   setCurrentRoute(route);
   launchController(route.controller);
 }
@@ -41,7 +40,6 @@ function navigate(path, firstLoad = false) {
   const routeKey = Object.keys(routes).find((key) => routes[key].path === path);
   const route = routes[routeKey] || routes.home;
 
-  //Setting the current route
   setCurrentRoute(route);
 
   firstLoad

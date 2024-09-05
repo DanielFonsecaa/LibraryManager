@@ -7,7 +7,6 @@ import {
   genreData,
 } from "../../components/updateFormUtils.js";
 
-// Validation
 export let isValid = true;
 
 async function updateBook(id, updatedBook) {
@@ -40,7 +39,6 @@ function render(book) {
   form.setAttribute("action", "#");
   form.classList.add("book-form");
 
-  // Form fields
   const titleField = createInput("text", "Title", book.title);
   const authorField = createInput("text", "Author", book.author);
   const publishedYearField = createInput(
@@ -53,7 +51,6 @@ function render(book) {
   priceField.setAttribute("step", "0.01");
   const publisherField = createInput("text", "Publisher", book.publisher);
 
-  // Creating genre dropdown
   const genreSelect = document.createElement("select");
   genreData.forEach((genre) => {
     const option = document.createElement("option");
@@ -64,7 +61,7 @@ function render(book) {
   });
   const synopsisField = document.createElement("textarea");
   synopsisField.name = "synopsis";
-  synopsisField.rows = 4; // Set the number of rows to 4
+  synopsisField.rows = 4;
   synopsisField.placeholder = "Enter synopsis...";
   synopsisField.value = book.synopsis;
 
@@ -96,22 +93,20 @@ function render(book) {
     form.appendChild(element);
     form.appendChild(document.createElement("br"));
 
-    // Create and append error message element
     const error = document.createElement("span");
     error.id = errorId;
     error.classList.add("error-message");
     form.appendChild(error);
   });
 
-  // Form validation logic
   form.addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
     const updatedBook = {
-      id: book.id, // Ensure this matches server expectations
+      id: book.id,
       title: titleField.value.trim(),
       author: authorField.value.trim(),
-      isbn: book.isbn, // Make sure this field is valid or required
+      isbn: book.isbn,
       publishedYear: parseInt(publishedYearField.value, 10),
       publisher: publisherField.value,
       genre: genreSelect.value,
@@ -121,28 +116,23 @@ function render(book) {
       imageUrl: imageField.value,
     };
 
-    //Validation
     validate(updatedBook);
 
-    // If all fields are valid, send the updated data
     if (isValid) {
       await updateBook(book.id, updatedBook);
       return;
     }
   });
 
-  //submit button
   const submitBtn = document.createElement("button");
   submitBtn.textContent = "Submit";
   submitBtn.classList.add("submit-button");
 
-  //cancel button
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
   cancelBtn.classList.add("cancel-button");
 
   cancelBtn.addEventListener("click", () => {
-    //Set the value of the input back to what it was
     titleField.value = book.title;
     authorField.value = book.author;
     publishedYearField.value = book.publishedYear;

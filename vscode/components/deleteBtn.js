@@ -6,7 +6,7 @@ export function deleteButtonListeners(router, routes) {
   [...deleteBtn].forEach((elem) => {
     elem.addEventListener("click", async (e) => {
       e.preventDefault();
-      const target = e.target.closest(".delete"); // Find the closest element
+      const target = e.target.closest(".delete");
 
       if (target.classList.contains("delete")) {
         const idMatch = target.id.match(/delete-(\d+)/);
@@ -21,7 +21,6 @@ export function deleteButtonListeners(router, routes) {
 
           if (confirmed) {
             try {
-              // Send to backend
               const response = await fetch(
                 `http://localhost:8080/bookStore/api/books/${id}`,
                 {
@@ -30,7 +29,6 @@ export function deleteButtonListeners(router, routes) {
               );
 
               if (response.ok) {
-                // Successfully deleted, remove the book
                 const book = document.querySelector(`#info-${id}`);
                 if (book) {
                   book.parentNode.removeChild(book);
@@ -40,7 +38,6 @@ export function deleteButtonListeners(router, routes) {
                 return;
               }
 
-              //fail
               const errorMessage = await response.text();
               console.error("Failed to delete book:", errorMessage);
               alert(

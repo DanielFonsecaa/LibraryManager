@@ -7,7 +7,6 @@ import {
   genreData,
 } from "../../components/updateFormUtils.js";
 
-// Validation
 export let isValid = true;
 
 async function createBook(newBook) {
@@ -22,7 +21,7 @@ async function createBook(newBook) {
 
     if (response.ok) {
       alert("Book has been created");
-      router.navigate(routes.home.path); // Redirect to the book list page
+      router.navigate(routes.home.path);
       return;
     }
 
@@ -47,7 +46,6 @@ function render() {
   form.setAttribute("action", "#");
   form.classList.add("book-form");
 
-  // Form fields
   const titleField = createInput("text", "Title");
   const authorField = createInput("text", "Author");
   const isbnField = createInput("text", "ISBN");
@@ -60,12 +58,11 @@ function render() {
 
   const synopsisField = document.createElement("textarea");
   synopsisField.name = "synopsis";
-  synopsisField.rows = 4; // Set the number of rows to 4
+  synopsisField.rows = 4;
   synopsisField.placeholder = "Enter synopsis...";
 
   const imageField = createInput("text", "Imagem Url");
 
-  // Creating genre dropdown
   const genreSelect = document.createElement("select");
   genreData.forEach((genre) => {
     const option = document.createElement("option");
@@ -97,16 +94,14 @@ function render() {
     form.appendChild(element);
     form.appendChild(document.createElement("br"));
 
-    // Create and append error message element
     const error = document.createElement("span");
     error.id = errorId;
     error.classList.add("error-message");
     form.appendChild(error);
   });
 
-  // Form validation logic
   form.addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
     const newBook = {
       title: titleField.value.trim(),
@@ -122,7 +117,6 @@ function render() {
     };
 
     validate(newBook);
-    // ISBN validation
     if (newBook.isbn.length < 9 || newBook.isbn.length > 13) {
       document.getElementById("isbnError").textContent =
         "ISBN must be between 9 and 13 characters.";
@@ -132,19 +126,16 @@ function render() {
       document.getElementById("isbnError").style.display = "none";
     }
 
-    // If all fields are valid, send the updated data
     if (isValid) {
       await createBook(newBook);
       return;
     }
   });
 
-  // Creating submit button
   const submitBtn = document.createElement("button");
   submitBtn.textContent = "Create";
   submitBtn.classList.add("submit-button");
 
-  // Creating cancel button
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
   cancelBtn.classList.add("cancel-button");

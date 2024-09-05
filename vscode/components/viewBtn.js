@@ -6,7 +6,7 @@ export function viewButtonListeners(router, routes) {
   [...view].forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = e.target.closest(".view"); // Find the closest element
+      const target = e.target.closest(".view");
 
       if (target.classList.contains("view")) {
         const idMatch = target.id.match(/view-(\d+)/);

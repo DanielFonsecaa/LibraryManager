@@ -12,7 +12,6 @@ export function createLabel(text) {
   return label;
 }
 
-// Genre options
 export const genreData = [
   "Adventure",
   "Dystopian",

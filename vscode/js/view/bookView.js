@@ -6,14 +6,12 @@ import { defaultBtnOrder } from "../../components/defaultBtn.js";
 import { genreData } from "../../components/updateFormUtils.js";
 import { selectBtnFilter } from "../../components/selectBtn.js";
 
-export let singleId = null; // Declare the shared singleId variable
+export let singleId = null;
 
-// Function to get the current singleId
 export function getSingleId() {
   return singleId;
 }
 
-// Function to set the singleId
 export function setSingleId(id) {
   singleId = id;
 }
@@ -21,7 +19,7 @@ export function setSingleId(id) {
 function render(books) {
   const container = document.querySelector("#container");
 
-  container.innerHTML = "<br>"; //removes the previous elements
+  container.innerHTML = "<br class='br'>";
   const sortBtns = document.createElement("div");
 
   sortBtns.className = "btnToSort";

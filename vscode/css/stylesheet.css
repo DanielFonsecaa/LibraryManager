@@ -107,18 +107,29 @@ h2{
     display: flex;
     justify-content: end;
     margin-right: 50px;
-    height: 50px;
+    height: 40px;
     gap: 30px;
 }
 
-.sortOrder, .sortGenre,.default{
+.sortOrder, .default{
+    display: inline;
     border: none;
-    background-color: #dac8c8;
-    padding: 5px 10px;
-    border-radius: 15px;
+    background-color: rgb(1, 39, 88);
+    padding: 5px 30px;
+    color:white;
+    font-weight: 800;
+    border-radius: 20px;
 }
 
-
+.sortGenre{
+    border: none;
+    background-color: rgb(1, 39, 88);
+    color: white;
+    font-weight: 800;
+    padding: 5px 30px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
 
 .listOfBooks{
     display:flex;
@@ -310,13 +321,33 @@ hr {
     .navSearch{
         display: flex;
     }
-
+    .br{
+        display: none;
+    }
     .btnToSort{
         display: flex;
-        margin: 0px 20px;
-        height: 50px;
-        justify-content: center;
+        height: auto;
+        width: 100vw;
+        gap:0px;
+        margin: 0px;
+        padding: 0px;
+        justify-content: unset;
     }
+
+    .default, .sortOrder, .sortGenre{
+        padding: 5px 20px;
+        border-radius: unset;
+        width: 100%;
+        background-color: #a9a8a8;
+    }
+
+    .default,.sortOrder{
+        justify-content: start;
+        align-items: start;
+        padding-left: 0px;
+        border-right:1px solid white;
+    }
+
     .book-container{
         justify-content: center;
         align-items: center;

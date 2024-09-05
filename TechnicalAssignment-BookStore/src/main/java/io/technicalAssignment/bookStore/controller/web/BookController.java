@@ -86,7 +86,6 @@ public class BookController {
     public String showBook(@PathVariable Integer id, Model model){
 
         Book book = bookService.get(id);
-        // command objects for book show view
         model.addAttribute("book", book);
 
 
@@ -150,7 +149,7 @@ public class BookController {
      */
     @RequestMapping(method = RequestMethod.POST, path = {"/", ""}, params = "action=cancel")
     public String cancelSaveBook() {
-        // we could use an anchor tag in the view for this, but we might want to do something clever in the future here
+
         return "redirect:/book/";
     }
 
