@@ -16,15 +16,12 @@ Book Management Simplified: Your Digital Partner for an Organized Library.
 
 
 # About The Project
-![Screenshot from 2024-09-04 21-50-45](https://github.com/user-attachments/assets/8ebaadf4-6057-4c5a-98db-2b1e3e77d152)
-![Screenshot from 2024-09-03 23-29-37](https://github.com/user-attachments/assets/331b9e2b-5aa5-4329-9ec3-208e61f3167d)
-![Screenshot from 2024-09-03 23-30-26](https://github.com/user-attachments/assets/e008104a-f806-426e-8de2-a1b9e678a1f1)
-![Screenshot from 2024-09-04 22-17-48](https://github.com/user-attachments/assets/c1a27216-5c9f-4540-a951-06a1d8373699)
-![Screenshot from 2024-09-04 22-18-17](https://github.com/user-attachments/assets/d9624d88-23ec-47a0-aa49-00ee74f3fabe)
-![Screenshot from 2024-09-03 23-31-58](https://github.com/user-attachments/assets/e3b751ad-e96b-48bb-aa5b-0d5298de9f3c)
-
-
-
+![Screenshot from 2024-09-06 12-51-03](https://github.com/user-attachments/assets/cf5b53df-9d63-486f-a96a-6fce0805aaf4)
+![Screenshot from 2024-09-06 12-51-17](https://github.com/user-attachments/assets/35687017-bee4-4735-a1a1-fa2dec0ca04d)
+![Screenshot from 2024-09-06 12-51-33](https://github.com/user-attachments/assets/5047de85-182e-4653-8cea-a9b7a994d74d)
+![Screenshot from 2024-09-06 12-52-02](https://github.com/user-attachments/assets/74f1cd83-65b4-45ba-ba33-700986bff9f2)
+![Screenshot from 2024-09-06 12-52-08](https://github.com/user-attachments/assets/1e6ea26c-31c1-4915-99ab-c11e4247c014)
+![Screenshot from 2024-09-06 12-52-36](https://github.com/user-attachments/assets/54e308b0-8d35-4243-806f-2825ccbb66e1)
 
 
 This project is a Bookstore Management Application that demonstrates a full-stack web application integrating both back-end and front-end technologies. It is designed to manage a bookstore's inventory, allowing users to perform CRUD (Create, Read, Update, Delete) operations on books via a user-friendly interface. The application is built using a combination of modern Java-based backend frameworks and dynamic JavaScript-based front-end technologies.
