@@ -267,6 +267,7 @@ If the Docker daemon is not running, you can start it with:
 
 Pull the Latest Images
 ```docker pull simbolado/bookstore-app:latest```
+
 ```docker pull simbolado/fe-book:latest```
 
 
