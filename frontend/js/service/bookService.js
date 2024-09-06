@@ -27,7 +27,7 @@ async function getBooks() {
     }
 
     return body;
-  } catch {
+  } catch (error) {
     console.error("error fetching character", error);
     throw error;
   }

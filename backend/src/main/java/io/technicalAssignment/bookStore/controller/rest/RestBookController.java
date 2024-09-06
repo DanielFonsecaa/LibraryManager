@@ -23,9 +23,10 @@ import java.util.stream.Collectors;
 /**
  * REST controller responsible for {@link Book} related CRUD operations
  */
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+
 @RestController
 @RequestMapping("/api/books")
+@CrossOrigin(origins = "*")
 public class RestBookController {
 
     private BookService bookService;
