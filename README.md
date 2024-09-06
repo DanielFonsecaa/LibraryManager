@@ -238,15 +238,65 @@ Add the following content:
     </settings>
 
 Change the Username and Password to what you want.
-## Getting Started
 
+
+Installing DOCKER
+
+
+```sudo apt update```
+
+```sudo apt install apt-transport-https ca-certificates curl software-properties-common```
+
+```curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -```
+
+```sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"```
+
+```sudo apt update```
+
+```sudo apt install docker-ce```
+
+```sudo systemctl status docker```
+
+## Getting Started
+#With DOCKER
+
+Ensure Docker Daemon is Running
+
+```sudo systemctl status docker```
+
+If the Docker daemon is not running, you can start it with:
+
+```sudo systemctl start docker```
+
+Pull the Latest Images
+```docker pull simbolado/bookstore-app:latest```
+```docker pull simbolado/fe-book:latest```
+
+
+Run Docker Compose file that is on the root of this project
+
+```docker-compose up -d```
+
+Go to google and type on the url: 
+```http://localhost/```
+_______
+
+#With TomCat
 Clone this repository git clone 
 
 ```https://github.com/DanielFonsecaa/LibraryManager```
 
-Start the MySQL service: ```sudo systemctl start mysqld```
+Start the MySQL service: 
 
-Start Tomcat: ```sudo ./path/to/tomcat/startup.sh``` Or, if you are already in the Tomcat directory: ```sudo ./startup.sh```
+```sudo systemctl start mysqld```
+
+Start Tomcat: 
+
+```sudo ./path/to/tomcat/startup.sh``` 
+
+Or, if you are already in the Tomcat directory: 
+
+```sudo ./startup.sh```
 
 In your IDE terminal, inside the project directory, use: ```mvn tomcat7:deploy``` to clean: ```mvn clean``` to undeploy ```mvn tomcat7:undeploy``` to redeploy ```mvn tomcat7:redeploy```
 ## Roadmap
@@ -262,9 +312,9 @@ In your IDE terminal, inside the project directory, use: ```mvn tomcat7:deploy``
 - [x] Book Detail Page Development
 - [x] Implement Search Functionality
 - [x] Responsive Design
-- [x] Bug Fixes and Refinements
-  
-- [ ] Setup Deployment Environment
+- [x] Bug Fixes and Refinements  
+- [x] Setup Deployment Environment
+      
 - [ ] Parameterized Routes
 - [ ] Production Launch
 - [ ] Feature Enhancements
