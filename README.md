@@ -40,9 +40,9 @@ This project is a Bookstore Management Application that demonstrates a full-stac
    Dynamic Updates: The front-end uses JavaScript to dynamically fetch and update data without requiring full page reloads.
 
    RESTful API Integration: The front-end interacts with the back-end through a REST API, making the system scalable and adaptable for future integrations.
-# Usage
+# 🤷🏼 Usage
 
-#### Main Page
+#### 📃 Main Page
 
 When you access the application, you are presented with a list of all books in the database.
 
@@ -92,7 +92,7 @@ Genre,
 Submit the form to add the new book to the database.
 
 
-#### Book Detail Page
+#### 🕵🏼‍♂️ Book Detail Page
 
 On the book detail page, you can manage individual book records.
 
@@ -110,7 +110,7 @@ Click the pen icon to edit the book's details. Make changes and save them to upd
    Navigate Back: Click the arrow icon or the logo at the top left to return to the main page.
 
 
-#### Navigation
+#### 🧭 Navigation
 
    Main Page: Displays all books and provides options to search and add new books.
    Book Detail Page: Allows you to view, edit, or delete individual book records.
@@ -118,7 +118,7 @@ Click the pen icon to edit the book's details. Make changes and save them to upd
 --*Additional Information*
 
    Development Stage: The application currently uses a test database located in the resources folder. This setup is for development purposes and does not affect the production environment.
-## Built With
+## 🪚 Built With
 
 #### Back-End
 
@@ -155,7 +155,7 @@ CSS: Styles and layouts web pages.
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [FontAwesome](https://fontawesome.com/)
-## Prerequisites
+## ✔️ Prerequisites
 
 JDK 8 or higher: Check installation with: java -version in your terminal.
 
@@ -170,7 +170,7 @@ Check the service status with:```sudo systemctl status mysql```
 Apache Tomcat: Ensure Tomcat is installed and configured. 
 Open a web browser and go to 
 ```http://localhost:8080.``` You should see the Tomcat welcome page.
-## Installation
+## ⚙️ Installation
 
 These installations are only for LINUX
 
@@ -257,7 +257,7 @@ Installing DOCKER
 
 ```sudo systemctl status docker```
 
-## Getting Started
+## 🧑🏼‍🔧 Getting Started
 #With DOCKER
 
 Ensure Docker Daemon is Running
@@ -299,7 +299,7 @@ Or, if you are already in the Tomcat directory:
 ```sudo ./startup.sh```
 
 In your IDE terminal, inside the project directory, use: ```mvn tomcat7:deploy``` to clean: ```mvn clean``` to undeploy ```mvn tomcat7:undeploy``` to redeploy ```mvn tomcat7:redeploy```
-## Roadmap
+## 🗺️ Roadmap
 
 - [x] Setup Environment Backend
 - [x] Database Schema
